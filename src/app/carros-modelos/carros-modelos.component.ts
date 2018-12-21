@@ -26,28 +26,21 @@ export class CarrosModelosComponent implements OnInit {
   }
 
   carregarModelos() {
-    this.actroute.queryParams.subscribe(
+    this.api.getVeiculosMarca().subscribe(
       res => {
-        this.marca = res.marca;
-        this.api.id_marca_carros = res.marca;
-        this.api.getVeiculosMarca(res.marca).subscribe(
-          res => {
-            this.veiculosFiltro = res;
-            this.veiculos = res;
-            this.loading = false;
-          },
-        )
-      }
-    );
+        this.veiculosFiltro = res;
+        this.veiculos = res;
+        this.loading = false;
+      },
+    )
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
 
-
   mostraAutomovel(id_auto) {
-    this.router.navigate(['/carros'], { queryParams: { id: id_auto, marca: this.marca } });
+    this.api.id_veiculo = id_auto;
     let dialogRef = this.dialog.open(CarrosAnosComponent, {
       width: '600px',
     });

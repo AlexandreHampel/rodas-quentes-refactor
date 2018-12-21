@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { MatDialog } from '@angular/material';
 import { CarrosModelosComponent } from '../carros-modelos/carros-modelos.component';
 import { UrlService } from '../url.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carros-marcas',
@@ -15,13 +15,13 @@ export class CarrosMarcasComponent implements OnInit {
   marcas: any = [];
   marcasFiltro: any = [];
 
-  constructor(public _data:DataService, public dialog: MatDialog, public api: UrlService, public router: Router) {
+  constructor(public _data: DataService, public dialog: MatDialog, public api: UrlService, public router: Router) {
   }
 
   ngOnInit() {
-      this.carregarMarcas();
+    this.carregarMarcas();
   }
-
+  
   carregarMarcas() {
     this.api.getMarcasCar().subscribe(
       res => {
@@ -52,12 +52,11 @@ export class CarrosMarcasComponent implements OnInit {
   }
 
   mostraCarros(id_marca) {
-    this.router.navigate(['/carros'], {queryParams: {marca: id_marca}});
+    this.api.id_marca_carros = id_marca;
     let dialogRef = this.dialog.open(CarrosModelosComponent, {
       width: '600px',
     });
     dialogRef.updatePosition();
   }
-  
 }
 

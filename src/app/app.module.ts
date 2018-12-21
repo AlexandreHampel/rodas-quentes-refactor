@@ -27,6 +27,7 @@ import { CaminhoesDetalhesComponent } from './caminhoes-detalhes/caminhoes-detal
 import { AboutComponent } from './about/about.component';
 import { DataComponent } from './data/data.component';
 import { AnunciosComponent } from './anuncios/anuncios.component';
+import { UrlService } from './url.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
     ],
   providers: [
     DataService,
+    UrlService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, disableClose: true}},
     {provide: MatDialogRef, useValue: {hasBackdrop: false, disableClose: true}}
   ],

@@ -12,6 +12,7 @@ export class UrlService {
   url_carros = 'https://fipeapi.appspot.com/api/1/carros/marcas.json';
   public id_marca_carros: string;
   public id_veiculo: string;
+  public id_modelo: string;
 
   url_motos = 'https://fipeapi.appspot.com/api/1/motos/marcas.json';
   private id_marca_motos: string;
@@ -21,24 +22,24 @@ export class UrlService {
   private id_marca_caminhoes: string;
   private id_caminhao: string;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) { 
+
+  }
 
   //CARROS
   getMarcasCar(): Observable<any> {
     return this.http.get(this.url_carros).pipe(map((res: Response) => res.json()));
   }
-  getVeiculosMarca(id_marca: string): Observable<any> {    
-    id_marca = this.id_marca_carros;
-    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculos/' + id_marca + '.json';
+  getVeiculosMarca(): Observable<any> {    
+    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculos/' + this.id_marca_carros + '.json';
     return this.http.get(url_query).pipe(map( (res: Response) => res.json()));
   }
-  getAutoId(marca, id_veiculo: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + marca + '/' + id_veiculo + '.json';
-    this.id_veiculo = id_veiculo;
+  getAutoId(): Observable<any> {
+    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + this.id_veiculo + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
-  getDetalhesCar(id_automovel: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + this.id_veiculo + '/' + id_automovel + '.json';
+  getDetalhesCar(): Observable<any> {
+    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + this.id_veiculo  + '/' + this.id_modelo + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
 
