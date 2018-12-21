@@ -28,19 +28,7 @@ export class DataService {
   caminhoes: any = [];
   detalhe_caminhoes: any = [];
 
-  constructor(private api: UrlService) {
-    // this.preenArrCar();
-    // this.preenArrMot();
-    // this.preenArrCam();
-  }
-
-  //CARREGAR CARROS
-  // preenArrCar() {
-  //   this.api.getMarcasCar().subscribe(res => {
-  //     this.carregar_carros = res;
-  //     this.sortMarcasCar();
-  //   })
-  // }
+  constructor(private api: UrlService) { }
 
   //CARREGAR MOTOS
   preenArrMot() {
@@ -57,52 +45,6 @@ export class DataService {
       this.sortMarcasCam();
     })
   }
-
-  //METODOS PARA CARROS
-  // sortMarcasCar() {
-  //   this.carregar_carros.sort((left, right): number => {
-  //     if (left.name < right.name) {
-  //       return -1;
-  //     } if (left.name > right.name) {
-  //       return 1;
-  //     }
-  //     return 0;
-  //   })
-  // }
-
-  // setVeiculos(marca) {
-  //   this.api.getVeiculosMarca(marca).subscribe(res => {
-  //     this.veiculos = res;
-  //   });
-  // }
-
-  // getVeiculos() {
-  //   return this.veiculos;
-  // }
-
-  // setAutomovel(id) {
-  //   this.api.getAutoId(id).subscribe(res => {
-  //     this.automovel = res;
-  //   });
-  // }
-
-  // getAutomovel() {
-  //   return this.automovel;
-  // }
-
-  // setDetalhesCar(id) {
-  //   if (id == 0) {
-  //     this.detalhe_carros = [{ name: 'Não há veiculos cadatrados' }];
-  //   } else {
-  //     this.api.getDetalhesCar(id).subscribe(res => {
-  //       this.detalhe_carros = res;
-  //     });
-  //   }
-  // }
-
-  // getDetalhesCar() {
-  //   return this.detalhe_carros;
-  // }
 
   //METODOS PARA MOTOS
   sortMarcasMot() {
