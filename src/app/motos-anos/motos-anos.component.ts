@@ -48,7 +48,7 @@ export class MotosAnosComponent implements OnInit {
   aplicaFiltro(value) {
     this.motoFiltro = [];
     this.motoFiltro = this.moto.filter(function (m) {
-      return m.name.toUpperCase().startsWith(value.toUpperCase());
+      return m.name.toUpperCase().includes(value.toUpperCase());
     })
   }
 }

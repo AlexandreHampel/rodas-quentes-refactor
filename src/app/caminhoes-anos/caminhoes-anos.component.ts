@@ -48,7 +48,7 @@ export class CaminhoesAnosComponent implements OnInit {
   aplicaFiltro(value) {
     this.caminhaoFiltro = [];
     this.caminhaoFiltro = this.caminhao.filter(function (m) {
-      return m.name.toUpperCase().startsWith(value.toUpperCase());
+      return m.name.toUpperCase().includes(value.toUpperCase());
     })
   }
 }

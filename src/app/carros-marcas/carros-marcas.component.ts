@@ -35,7 +35,7 @@ export class CarrosMarcasComponent implements OnInit {
   aplicaFiltro(value) {
     this.marcasFiltro = [];
     this.marcasFiltro = this.marcas.filter(function (m) {
-      return m.name.toUpperCase().startsWith(value.toUpperCase());
+      return m.name.toUpperCase().includes(value.toUpperCase());
     })
   }
 

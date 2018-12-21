@@ -49,7 +49,7 @@ export class CarrosModelosComponent implements OnInit {
   aplicaFiltro(value) {
     this.veiculosFiltro = [];
     this.veiculosFiltro = this.veiculos.filter(function (m) {
-      return m.name.toUpperCase().startsWith(value.toUpperCase());
+      return m.name.toUpperCase().includes(value.toUpperCase());
     })
   }
 }

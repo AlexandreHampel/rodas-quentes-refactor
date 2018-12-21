@@ -47,7 +47,7 @@ export class CaminhoesModelosComponent implements OnInit {
   aplicaFiltro(value) {
     this.caminhoesFiltro = [];
     this.caminhoesFiltro = this.caminhoes.filter(function (m) {
-      return m.name.toUpperCase().startsWith(value.toUpperCase());
+      return m.name.toUpperCase().includes(value.toUpperCase());
     })
   }
 }
