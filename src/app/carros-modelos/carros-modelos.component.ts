@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../url.service';
 import { MatDialogRef } from '@angular/material';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 import { MatDialog } from '@angular/material';
 import { CarrosAnosComponent } from '../carros-anos/carros-anos.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class CarrosModelosComponent implements OnInit {
   veiculos: any = [];
   veiculosFiltro: any = [];
   loading = true;
-  constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosModelosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
+  constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosModelosComponent>, public print: PrintService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
 
 
   ngOnInit() {

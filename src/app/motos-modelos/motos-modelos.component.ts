@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { MotosAnosComponent } from '../motos-anos/motos-anos.component';
 import { UrlService } from '../url.service';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 
 @Component({
   selector: 'app-motos-modelos',
@@ -17,7 +17,7 @@ export class MotosModelosComponent implements OnInit {
   motosFiltro: any = [];
   loading = true;
 
-  constructor(private api: UrlService, public dialogRef: MatDialogRef<MotosModelosComponent>, public _data: DataService, public dialog: MatDialog) { }
+  constructor(private api: UrlService, public dialogRef: MatDialogRef<MotosModelosComponent>, public print: PrintService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.carregarModelos();

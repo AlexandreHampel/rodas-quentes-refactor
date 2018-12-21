@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { UrlService } from './url.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class DataService {
+export class PrintService {
   //VARIAVEIS PARA IMPRESSAO
   det = "det";
   imagem = "imagem";
 
-  constructor(private api: UrlService) { }
+  constructor() { }
 
   //IMPRESSAO
   printData() {
@@ -18,10 +17,11 @@ export class DataService {
     this.det = "det";
     this.imagem = "imagem";
   }
-  
+
   async delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
   async changeData() {
     this.det = "invisivel";
     this.imagem = "det";

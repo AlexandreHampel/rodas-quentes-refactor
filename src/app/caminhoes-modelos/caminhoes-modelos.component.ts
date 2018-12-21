@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../url.service';
 import { MatDialogRef } from '@angular/material';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 import { MatDialog } from '@angular/material';
 import { CaminhoesAnosComponent } from '../caminhoes-anos/caminhoes-anos.component';
 
@@ -16,7 +16,7 @@ export class CaminhoesModelosComponent implements OnInit {
   caminhoesFiltro: any = [];
   loading = true;
 
-  constructor(private api: UrlService, public dialogRef: MatDialogRef<CaminhoesModelosComponent>, public _data: DataService, public dialog: MatDialog) { }
+  constructor(private api: UrlService, public dialogRef: MatDialogRef<CaminhoesModelosComponent>, public print: PrintService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.carregarModelos();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 import { MatDialog } from '@angular/material';
 import { CarrosModelosComponent } from '../carros-modelos/carros-modelos.component';
 import { UrlService } from '../url.service';
@@ -15,13 +15,13 @@ export class CarrosMarcasComponent implements OnInit {
   marcas: any = [];
   marcasFiltro: any = [];
 
-  constructor(public _data: DataService, public dialog: MatDialog, public api: UrlService, public router: Router) {
+  constructor(public print: PrintService, public dialog: MatDialog, public api: UrlService, public router: Router) {
   }
 
   ngOnInit() {
     this.carregarMarcas();
   }
-  
+
   carregarMarcas() {
     this.api.getMarcasCar().subscribe(
       res => {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { UrlService } from '../url.service';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 
 @Component({
   selector: 'app-motos-detalhes',
@@ -15,7 +15,7 @@ export class MotosDetalhesComponent implements OnInit {
   detalhe: any = [];
   loading = true;
 
-  constructor(private api: UrlService, public dialogRef: MatDialogRef<MotosDetalhesComponent>, public _data: DataService, public dialog: MatDialog) { }
+  constructor(private api: UrlService, public dialogRef: MatDialogRef<MotosDetalhesComponent>, public print: PrintService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getDetalhes();
@@ -35,6 +35,6 @@ export class MotosDetalhesComponent implements OnInit {
   }
 
   change() {
-    this._data.changeData();
+    this.print.changeData();
   }
 }

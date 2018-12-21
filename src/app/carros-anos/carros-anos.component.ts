@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../url.service';
 import { MatDialogRef } from '@angular/material';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 import { MatDialog } from '@angular/material';
 import { CarrosDetalhesComponent } from '../carros-detalhes/carros-detalhes.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class CarrosAnosComponent implements OnInit {
   automovel: any = [];
   loading = true;
 
-  constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosAnosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
+  constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosAnosComponent>, public print: PrintService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
     this.getModelos();

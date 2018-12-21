@@ -7,7 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
-import { DataService } from './data.service';
+import { PrintService } from './print.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -60,7 +60,7 @@ import { UrlService } from './url.service';
     MatDialogModule
     ],
   providers: [
-    DataService,
+    PrintService,
     UrlService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
     {provide: MatDialogRef, useValue: {hasBackdrop: false}}

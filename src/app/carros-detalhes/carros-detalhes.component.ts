@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../url.service';
 import { MatDialogRef } from '@angular/material';
-import { DataService } from '../data.service';
+import { PrintService } from '../print.service';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class CarrosDetalhesComponent implements OnInit {
   detalhe: any = [];
   loading = true;
 
-  constructor(private api: UrlService, public dialogRef: MatDialogRef<CarrosDetalhesComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute) { }
+  constructor(private api: UrlService, public dialogRef: MatDialogRef<CarrosDetalhesComponent>, public print: PrintService, public dialog: MatDialog, public actroute: ActivatedRoute) { }
   ngOnInit() {
     this.getDetalhes();
   }
@@ -35,6 +35,6 @@ export class CarrosDetalhesComponent implements OnInit {
   }
 
   change() {
-    this._data.changeData();
+    this.print.changeData();
   }
 }
