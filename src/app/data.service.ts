@@ -70,11 +70,11 @@ export class DataService {
     })
   }
 
-  setVeiculos(marca) {
-    this.api.getVeiculosMarca(marca).subscribe(res => {
-      this.veiculos = res;
-    });
-  }
+  // setVeiculos(marca) {
+  //   this.api.getVeiculosMarca(marca).subscribe(res => {
+  //     this.veiculos = res;
+  //   });
+  // }
 
   getVeiculos() {
     return this.veiculos;

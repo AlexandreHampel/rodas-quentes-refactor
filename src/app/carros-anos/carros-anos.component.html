@@ -4,6 +4,7 @@
   </div>
   <h1 mat-dialog-title>ANO MODELO</h1>
   <div class="flex-container">
+      <p *ngIf="loading"><ngb-progressbar type="dark" [value]="100" [striped]="true" [animated]="true">Carregando...</ngb-progressbar></p>
     <div *ngFor="let auto of automovel" id="popup">
       <a id="cursor" (click)="mostraDetalhes(auto.id)">{{auto.name}}</a>
     </div>

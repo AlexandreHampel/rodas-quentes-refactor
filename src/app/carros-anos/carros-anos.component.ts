@@ -15,23 +15,22 @@ import { ActivatedRoute } from '@angular/router';
 export class CarrosAnosComponent implements OnInit {
 
   automovel: any = [];
+  marca = '';
+  loading = true;
 
   constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosAnosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute) { }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   this.automovel = this._data.getAutomovel();
-    // }, 600);
-
     this.actroute.queryParams.subscribe(
       res => {
-        console.log(res.marca, res.id);
         this.api.getAutoId(res.marca, res.id).subscribe(
-          res => this.automovel = res
+          res => {
+            this.automovel = res;
+            this.loading = false;
+          }
         )
       }
     )
-
   }
 
   closeDialog() {

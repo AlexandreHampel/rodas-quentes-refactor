@@ -17,8 +17,7 @@ export class CarrosModelosComponent implements OnInit {
   veiculos: any = [];
   veiculosFiltro: any = [];
   loading = true;
-  marca = 0;
-
+  marca = '';
   constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosModelosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
 
 
@@ -26,38 +25,33 @@ export class CarrosModelosComponent implements OnInit {
     this.carregarModelos();
   }
 
-  carregarModelos(){
+  carregarModelos() {
     this.actroute.queryParams.subscribe(
       res => {
-        this.marca = res.id;
-        if(res.id!=undefined){
-         this.api.getVeiculosMarca(res.id).subscribe(
-           res => {
-             this.veiculosFiltro = res;
-             this.veiculos = res;
-             this.loading = false;
-             
-           }
-         )
-          }
+        this.marca = res.marca;
+        this.api.id_marca_carros = res.marca;
+        this.api.getVeiculosMarca(res.marca).subscribe(
+          res => {
+            this.veiculosFiltro = res;
+            this.veiculos = res;
+            this.loading = false;
+          },
+        )
       }
     );
   }
-  
+
   closeDialog() {
-    this.dialogRef.close();
     this.router.navigate(['/carros']);
+    this.dialogRef.close();
   }
 
   mostraAutomovel(id_auto) {
-    console.log(id_auto, this.marca);
-    if (id_auto != undefined && this.marca != undefined) {
-      this.router.navigate(['/carros'], {queryParams: {id: id_auto, marca: this.marca}});
-      let dialogRef = this.dialog.open(CarrosAnosComponent, {
-        width: '600px',
-      });
-      dialogRef.updatePosition();
-    }
+    this.router.navigate(['/carros'], { queryParams: { id: id_auto, marca: this.marca } });
+    let dialogRef = this.dialog.open(CarrosAnosComponent, {
+      width: '600px',
+    });
+    dialogRef.updatePosition();
   }
 
   aplicaFiltro(value) {

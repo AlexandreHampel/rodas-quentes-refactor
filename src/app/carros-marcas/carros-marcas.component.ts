@@ -52,7 +52,7 @@ export class CarrosMarcasComponent implements OnInit {
   }
 
   mostraCarros(id_marca) {
-    this.router.navigate(['/carros'], {queryParams: {id: id_marca}});
+    this.router.navigate(['/carros'], {queryParams: {marca: id_marca}});
     let dialogRef = this.dialog.open(CarrosModelosComponent, {
       width: '600px',
     });
