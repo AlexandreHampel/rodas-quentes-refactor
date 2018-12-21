@@ -26,7 +26,6 @@ import { CaminhoesAnosComponent } from './caminhoes-anos/caminhoes-anos.componen
 import { CaminhoesDetalhesComponent } from './caminhoes-detalhes/caminhoes-detalhes.component';
 import { AboutComponent } from './about/about.component';
 import { DataComponent } from './data/data.component';
-import { AnunciosComponent } from './anuncios/anuncios.component';
 import { UrlService } from './url.service';
 
 @NgModule({
@@ -48,9 +47,8 @@ import { UrlService } from './url.service';
     CaminhoesAnosComponent,
     CaminhoesDetalhesComponent,
     AboutComponent,
-    DataComponent,
-    AnunciosComponent
-  ],
+    DataComponent
+    ],
   imports: [
     BrowserModule,
     NgbModule,
@@ -64,8 +62,8 @@ import { UrlService } from './url.service';
   providers: [
     DataService,
     UrlService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, disableClose: true}},
-    {provide: MatDialogRef, useValue: {hasBackdrop: false, disableClose: true}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    {provide: MatDialogRef, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [CarrosModelosComponent, CarrosAnosComponent, CarrosDetalhesComponent, MotosModelosComponent, MotosAnosComponent, MotosDetalhesComponent, CaminhoesModelosComponent, CaminhoesAnosComponent, CaminhoesDetalhesComponent]
