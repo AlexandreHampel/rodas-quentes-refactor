@@ -37,7 +37,7 @@ export class CarrosAnosComponent implements OnInit {
   }
 
   mostraDetalhes(id) {
-    this.api.id_modelo = id;
+    this.api.id_carros_modelo = id;
     let dialogRef = this.dialog.open(CarrosDetalhesComponent, {
       width: '600px',
     });

@@ -5,7 +5,9 @@
 </div>
 
 <h1 mat-dialog-title>INFORMAÇÕES</h1>
-<p *ngIf="loading"><ngb-progressbar type="dark" [value]="100" [striped]="true" [animated]="true">Carregando...</ngb-progressbar></p>
+<p *ngIf="loading">
+  <ngb-progressbar type="dark" [value]="100" [striped]="true" [animated]="true">Carregando...</ngb-progressbar>
+</p>
 <div class="flex-container" id="popup" *ngIf="!loading">
   <div><span>MARCA: </span><br>{{detalhe.marca}} </div>
   <div *ngIf="detalhe.veiculo"><span>MODELO: </span><br>{{detalhe.veiculo}} </div>

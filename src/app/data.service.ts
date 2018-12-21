@@ -31,12 +31,12 @@ export class DataService {
   constructor(private api: UrlService) { }
 
   //CARREGAR MOTOS
-  preenArrMot() {
-    this.api.getMarcasMot().subscribe(res => {
-      this.carregar_motos = res;
-      this.sortMarcasMot();
-    })
-  }
+  // preenArrMot() {
+  //   this.api.getMarcasMot().subscribe(res => {
+  //     this.carregar_motos = res;
+  //     this.sortMarcasMot();
+  //   })
+  // }
 
   //CARREGAR CAMINHOES
   preenArrCam() {
@@ -47,45 +47,45 @@ export class DataService {
   }
 
   //METODOS PARA MOTOS
-  sortMarcasMot() {
-    this.carregar_motos.sort((left, right): number => {
-      if (left.name < right.name) {
-        return -1;
-      } if (left.name > right.name) {
-        return 1;
-      }
-      return 0;
-    })
-  }
+  // sortMarcasMot() {
+  //   this.carregar_motos.sort((left, right): number => {
+  //     if (left.name < right.name) {
+  //       return -1;
+  //     } if (left.name > right.name) {
+  //       return 1;
+  //     }
+  //     return 0;
+  //   })
+  // }
 
-  setMotos(marca) {
-    this.api.getMotoneta(marca).subscribe(res => {
-      this.motos = res;
-    });
-  }
+  // setMotos(marca) {
+  //   this.api.getMotoneta(marca).subscribe(res => {
+  //     this.motos = res;
+  //   });
+  // }
 
-  getMotos() {
-    return this.motos;
-  }
+  // getMotos() {
+  //   return this.motos;
+  // }
 
-  setMoto(id) {
-    this.api.getMotoId(id).subscribe(res => {
-      this.moto = res;
-    });
-  }
+  // setMoto(id) {
+  //   this.api.getMotoId(id).subscribe(res => {
+  //     this.moto = res;
+  //   });
+  // }
 
-  getMoto() {
-    return this.moto;
-  }
+  // getMoto() {
+  //   return this.moto;
+  // }
 
-  setDetalhesMot(id) {
-    this.api.getMotoDetalhes(id).subscribe(res => {
-      this.detalhe_motos = res;
-    });
-  }
-  getDetalhesMot() {
-    return this.detalhe_motos;
-  }
+  // setDetalhesMot(id) {
+  //   this.api.getMotoDetalhes(id).subscribe(res => {
+  //     this.detalhe_motos = res;
+  //   });
+  // }
+  // getDetalhesMot() {
+  //   return this.detalhe_motos;
+  // }
 
   //METODOS PARA CAMINHOES
   sortMarcasCam() {

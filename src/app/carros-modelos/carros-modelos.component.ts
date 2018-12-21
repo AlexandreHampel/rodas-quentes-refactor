@@ -17,7 +17,6 @@ export class CarrosModelosComponent implements OnInit {
   veiculos: any = [];
   veiculosFiltro: any = [];
   loading = true;
-  marca = '';
   constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosModelosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute, public router: Router) { }
 
 

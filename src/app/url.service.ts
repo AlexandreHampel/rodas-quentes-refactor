@@ -12,11 +12,12 @@ export class UrlService {
   url_carros = 'https://fipeapi.appspot.com/api/1/carros/marcas.json';
   public id_marca_carros: string;
   public id_veiculo: string;
-  public id_modelo: string;
+  public id_carros_modelo: string;
 
   url_motos = 'https://fipeapi.appspot.com/api/1/motos/marcas.json';
-  private id_marca_motos: string;
-  private id_moto: string;
+  public id_marca_motos: string;
+  public id_moto: string;
+  public id_motos_modelo: string;
 
   url_caminhoes = 'https://fipeapi.appspot.com/api/1/caminhoes/marcas.json';
   private id_marca_caminhoes: string;
@@ -39,7 +40,7 @@ export class UrlService {
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
   getDetalhesCar(): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + this.id_veiculo  + '/' + this.id_modelo + '.json';
+    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + this.id_veiculo  + '/' + this.id_carros_modelo + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
 
@@ -47,23 +48,16 @@ export class UrlService {
   getMarcasMot(): Observable<any> {
     return this.http.get(this.url_motos).pipe(map((res: Response) => res.json()));
   }
-  getMarcaMotos(id_moto: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/motos/marcas.json';
-    this.id_moto = id_moto;
+  getMotoId(): Observable<any> {
+    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculos/' + this.id_marca_motos + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
-  getMotoId(id_marca: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculos/' + id_marca + '.json';
-    this.id_marca_motos = id_marca;
+  getMotoneta(): Observable<any> {
+    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculo/' + this.id_marca_motos + '/' + this.id_moto + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
-  getMotoneta(id_moto: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculo/' + this.id_marca_motos + '/' + id_moto + '.json';
-    this.id_moto = id_moto;
-    return this.http.get(url_query).pipe(map((res: Response) => res.json()));
-  }
-  getMotoDetalhes(id_modelo: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculo/' + this.id_marca_motos + '/' + this.id_moto + '/' + id_modelo + '.json';
+  getMotoDetalhes(): Observable<any> {
+    let url_query = 'https://fipeapi.appspot.com/api/1/motos/veiculo/' + this.id_marca_motos + '/' + this.id_moto + '/' + this.id_motos_modelo + '.json';
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
 

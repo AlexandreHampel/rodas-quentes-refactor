@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DataService } from '../data.service';
 import { MotosModelosComponent } from '../motos-modelos/motos-modelos.component';
+import { UrlService } from '../url.service';
 
 @Component({
   selector: 'app-motos-marcas',
@@ -13,17 +14,20 @@ export class MotosMarcasComponent implements OnInit {
   marcas: any = [];
   marcasFiltro: any = [];
 
-  constructor(public _data: DataService, public dialog: MatDialog) { }
+  constructor(public _data: DataService, public dialog: MatDialog, public api: UrlService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.carregarMarcas();
-    }, 600);
+    this.carregarMarcas();
   }
 
   carregarMarcas() {
-    this.marcasFiltro = this._data.carregar_motos;
-    this.marcas = this._data.carregar_motos;
+    this.api.getMarcasMot().subscribe(
+      res => {
+        this.marcasFiltro = res;
+        this.marcas = res;
+        this.sortMarcas();
+      }
+    )
   }
 
   aplicaFiltro(value) {
@@ -45,7 +49,7 @@ export class MotosMarcasComponent implements OnInit {
   }
 
   mostraMotos(id_marca) {
-    this._data.setMoto(id_marca);
+    this.api.id_marca_motos = id_marca;
     let dialogRef = this.dialog.open(MotosModelosComponent, {
       width: '600px',
     });
