@@ -15,6 +15,7 @@ export class CaminhoesDetalhesComponent implements OnInit {
   loading = true;
 
   constructor(private api: UrlService, public dialogRef: MatDialogRef<CaminhoesDetalhesComponent>, public _data: DataService, public dialog: MatDialog) { }
+  
   ngOnInit() {
     this.getDetalhes();
   }

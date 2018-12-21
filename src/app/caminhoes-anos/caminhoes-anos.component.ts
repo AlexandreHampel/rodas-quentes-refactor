@@ -36,6 +36,7 @@ export class CaminhoesAnosComponent implements OnInit {
       }
     )
   }
+  
   mostraDetalhes(id) {
     this.api.id_caminhoes_modelo = id;
     let dialogRef = this.dialog.open(CaminhoesDetalhesComponent, {
