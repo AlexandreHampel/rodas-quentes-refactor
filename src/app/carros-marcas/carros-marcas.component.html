@@ -1,4 +1,7 @@
 <div class="body">
+
+
+
   <div [class]="print.det">
     <div class="sticky">
       <marquee direction="down" height="100px" scrollamount="3"><img src="https://www.ic3solutions.com/wp-content/uploads/2017/07/bombarded-with-ads.jpg"></marquee>
@@ -6,7 +9,7 @@
     <div>
       <form class="form-inline my-2 my-lg-0">
         <input id="pesquisar" class="form-control mr-sm-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar"
-          #filtro (keyup)="aplicaFiltro(filtro.value.trim())">
+          #filtro (keyup)="aplicaFiltro(filtro.value.trim())"><i class="fa fa-close clearButton" (click)="clearInput()"></i> 
       </form>
     </div>
     <br>

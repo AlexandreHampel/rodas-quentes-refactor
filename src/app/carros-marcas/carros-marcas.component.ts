@@ -58,5 +58,11 @@ export class CarrosMarcasComponent implements OnInit {
     });
     dialogRef.updatePosition();
   }
+
+  clearInput() {
+    let input = <HTMLInputElement>document.getElementById('pesquisar');
+    input.value = '';
+    this.aplicaFiltro(input.value);
+  }
 }
 
