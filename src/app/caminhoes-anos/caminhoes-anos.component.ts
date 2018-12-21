@@ -15,22 +15,29 @@ export class CaminhoesAnosComponent implements OnInit {
 
   caminhao: any = [];
   caminhaoFiltro: any = [];
-  
+  loading = true;
+
   constructor(private api: UrlService, public dialogRef: MatDialogRef<CaminhoesAnosComponent>, public _data: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.caminhao = this._data.getCaminhoes();
-      this.caminhaoFiltro = this.caminhao;
-    }, 500);
+    this.getModelos();
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
 
+  getModelos() {
+    this.api.getCaminhoes().subscribe(
+      res => {
+        this.caminhao = res;
+        this.caminhaoFiltro = res;
+        this.loading = false;
+      }
+    )
+  }
   mostraDetalhes(id) {
-    this._data.setDetalhesCam(id);
+    this.api.id_caminhoes_modelo = id;
     let dialogRef = this.dialog.open(CaminhoesDetalhesComponent, {
       width: '600px',
     });

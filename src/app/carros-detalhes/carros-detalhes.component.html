@@ -28,7 +28,7 @@
 </div>
 
 <div [class]="_data.det">
-  <div class="print">
+  <div class="print" *ngIf="!loading">
     <button class="btn btn-outline-light" id="printButton" (click)="change()">IMPRIMIR INFORMAÇÕES</button>
   </div>
 </div>

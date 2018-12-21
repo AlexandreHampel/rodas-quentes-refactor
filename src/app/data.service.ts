@@ -30,25 +30,17 @@ export class DataService {
 
   constructor(private api: UrlService) { }
 
-  //CARREGAR MOTOS
-  // preenArrMot() {
-  //   this.api.getMarcasMot().subscribe(res => {
-  //     this.carregar_motos = res;
-  //     this.sortMarcasMot();
+  //CARREGAR CAMINHOES
+  // preenArrCam() {
+  //   this.api.getMarcasCam().subscribe(res => {
+  //     this.carregar_caminhoes = res;
+  //     this.sortMarcasCam();
   //   })
   // }
 
-  //CARREGAR CAMINHOES
-  preenArrCam() {
-    this.api.getMarcasCam().subscribe(res => {
-      this.carregar_caminhoes = res;
-      this.sortMarcasCam();
-    })
-  }
-
-  //METODOS PARA MOTOS
-  // sortMarcasMot() {
-  //   this.carregar_motos.sort((left, right): number => {
+  //METODOS PARA CAMINHOES
+  // sortMarcasCam() {
+  //   this.carregar_caminhoes.sort((left, right): number => {
   //     if (left.name < right.name) {
   //       return -1;
   //     } if (left.name > right.name) {
@@ -58,76 +50,35 @@ export class DataService {
   //   })
   // }
 
-  // setMotos(marca) {
-  //   this.api.getMotoneta(marca).subscribe(res => {
-  //     this.motos = res;
+  // setCaminhao(id) {
+  //   this.api.getCaminhaoId(id).subscribe(res => {
+  //     this.caminhao = res;
   //   });
   // }
 
-  // getMotos() {
-  //   return this.motos;
+  // getCaminhao() {
+  //   return this.caminhao;
   // }
 
-  // setMoto(id) {
-  //   this.api.getMotoId(id).subscribe(res => {
-  //     this.moto = res;
+  // getCaminhoes() {
+  //   return this.caminhoes;
+  // }
+
+  // setCaminhoes(marca) {
+  //   this.api.getCaminhoes(marca).subscribe(res => {
+  //     this.caminhoes = res;
   //   });
   // }
 
-  // getMoto() {
-  //   return this.moto;
-  // }
-
-  // setDetalhesMot(id) {
-  //   this.api.getMotoDetalhes(id).subscribe(res => {
-  //     this.detalhe_motos = res;
+  // setDetalhesCam(id) {
+  //   this.api.getCaminhaoDetalhes(id).subscribe(res => {
+  //     this.detalhe_caminhoes = res;
   //   });
   // }
-  // getDetalhesMot() {
-  //   return this.detalhe_motos;
+
+  // getDetalhesCam() {
+  //   return this.detalhe_caminhoes;
   // }
-
-  //METODOS PARA CAMINHOES
-  sortMarcasCam() {
-    this.carregar_caminhoes.sort((left, right): number => {
-      if (left.name < right.name) {
-        return -1;
-      } if (left.name > right.name) {
-        return 1;
-      }
-      return 0;
-    })
-  }
-
-  setCaminhao(id) {
-    this.api.getCaminhaoId(id).subscribe(res => {
-      this.caminhao = res;
-    });
-  }
-
-  getCaminhao() {
-    return this.caminhao;
-  }
-
-  getCaminhoes() {
-    return this.caminhoes;
-  }
-
-  setCaminhoes(marca) {
-    this.api.getCaminhoes(marca).subscribe(res => {
-      this.caminhoes = res;
-    });
-  }
-
-  setDetalhesCam(id) {
-    this.api.getCaminhaoDetalhes(id).subscribe(res => {
-      this.detalhe_caminhoes = res;
-    });
-  }
-
-  getDetalhesCam() {
-    return this.detalhe_caminhoes;
-  }
 
   //IMPRESSAO
   printData() {
