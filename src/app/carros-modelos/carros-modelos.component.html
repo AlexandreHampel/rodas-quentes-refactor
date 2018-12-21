@@ -6,6 +6,7 @@
   </div>
 
   <h1 mat-dialog-title>MODELOS</h1>
+  <p *ngIf="loading"><ngb-progressbar type="dark" [value]="100" [striped]="true" [animated]="true">Carregando...</ngb-progressbar></p>
   <div mat-dialog-content>
     <div id="popup" *ngFor="let veiculo of veiculosFiltro">
       <a id="cursor" (click)="mostraAutomovel(veiculo.id)">{{veiculo.name}}</a>

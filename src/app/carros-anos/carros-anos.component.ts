@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material';
 import { DataService } from '../data.service';
 import { MatDialog } from '@angular/material';
 import { CarrosDetalhesComponent } from '../carros-detalhes/carros-detalhes.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-carros-anos',
@@ -15,12 +16,22 @@ export class CarrosAnosComponent implements OnInit {
 
   automovel: any = [];
 
-  constructor(private api: UrlService, public dialogRef: MatDialogRef<CarrosAnosComponent>, public _data: DataService, public dialog: MatDialog) { }
+  constructor(public api: UrlService, public dialogRef: MatDialogRef<CarrosAnosComponent>, public _data: DataService, public dialog: MatDialog, public actroute: ActivatedRoute) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.automovel = this._data.getAutomovel();
-    }, 600);
+    // setTimeout(() => {
+    //   this.automovel = this._data.getAutomovel();
+    // }, 600);
+
+    this.actroute.queryParams.subscribe(
+      res => {
+        console.log(res.marca, res.id);
+        this.api.getAutoId(res.marca, res.id).subscribe(
+          res => this.automovel = res
+        )
+      }
+    )
+
   }
 
   closeDialog() {

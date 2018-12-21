@@ -80,11 +80,11 @@ export class DataService {
     return this.veiculos;
   }
 
-  setAutomovel(id) {
-    this.api.getAutoId(id).subscribe(res => {
-      this.automovel = res;
-    });
-  }
+  // setAutomovel(id) {
+  //   this.api.getAutoId(id).subscribe(res => {
+  //     this.automovel = res;
+  //   });
+  // }
 
   getAutomovel() {
     return this.automovel;

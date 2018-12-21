@@ -28,12 +28,14 @@ export class UrlService {
     return this.http.get(this.url_carros).pipe(map((res: Response) => res.json()));
   }
   getVeiculosMarca(id_marca: string): Observable<any> {
+    console.log('popup1');
     let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculos/' + id_marca + '.json';
     this.id_marca_carros = id_marca;
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }
-  getAutoId(id_veiculo: string): Observable<any> {
-    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + this.id_marca_carros + '/' + id_veiculo + '.json';
+  getAutoId(id_marca_carros, id_veiculo: string): Observable<any> {
+    console.log('popup2');
+    let url_query = 'https://fipeapi.appspot.com/api/1/carros/veiculo/' + id_marca_carros + '/' + id_veiculo + '.json';
     this.id_veiculo = id_veiculo;
     return this.http.get(url_query).pipe(map((res: Response) => res.json()));
   }

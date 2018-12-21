@@ -62,8 +62,8 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
     ],
   providers: [
     DataService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
-    {provide: MatDialogRef, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, disableClose: true}},
+    {provide: MatDialogRef, useValue: {hasBackdrop: false, disableClose: true}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [CarrosModelosComponent, CarrosAnosComponent, CarrosDetalhesComponent, MotosModelosComponent, MotosAnosComponent, MotosDetalhesComponent, CaminhoesModelosComponent, CaminhoesAnosComponent, CaminhoesDetalhesComponent]
