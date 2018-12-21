@@ -42,9 +42,9 @@ export class CarrosModelosComponent implements OnInit {
   }
 
   closeDialog() {
-    this.router.navigate(['/carros']);
     this.dialogRef.close();
   }
+
 
   mostraAutomovel(id_auto) {
     this.router.navigate(['/carros'], { queryParams: { id: id_auto, marca: this.marca } });
